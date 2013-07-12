@@ -1,6 +1,12 @@
+#!/usr/bin/env node
+var express = require("express");
+var app = express();
+
 var fs = require('fs');
 
-var data = fs.readFileSync('index.html')
+var data = fs.readFileSync('index.html');
 
-console.log(data.toString('utf-8'));
+app.get('/', function(request, response) {
+  response.send(data.toString('utf-8'));
+});
 
